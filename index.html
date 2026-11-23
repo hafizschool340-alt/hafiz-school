@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="مدرسه حافظ">
+<meta name="theme-color" content="#6C3FC5">
+<title>مدرسه حافظ</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f0f4ff;color:#222;min-height:100vh;direction:rtl}.header{background:linear-gradient(135deg,#6C3FC5 0%,#9B59B6 50%,#E91E8C 100%);color:white;padding:18px 20px 60px;text-align:center;position:relative;overflow:hidden}.header::before{content:'';position:absolute;top:-40px;left:-40px;width:180px;height:180px;background:rgba(255,255,255,0.08);border-radius:50%}.header::after{content:'';position:absolute;bottom:-60px;right:-30px;width:220px;height:220px;background:rgba(255,255,255,0.06);border-radius:50%}.header-emoji{font-size:2.8rem;margin-bottom:6px}.header h1{font-size:1.7rem;font-weight:700;letter-spacing:1px}.header p{font-size:0.9rem;opacity:0.85;margin-top:4px}.wave{background:linear-gradient(135deg,#6C3FC5 0%,#9B59B6 50%,#E91E8C 100%);height:50px;position:relative}.wave svg{position:absolute;bottom:0;left:0;width:100%;height:60px}.content{padding:20px 16px 100px;max-width:480px;margin:0 auto}.section-title{font-size:1rem;font-weight:700;color:#555;margin:20px 0 12px;display:flex;align-items:center;gap:8px}.section-title::after{content:'';flex:1;height:2px;background:linear-gradient(to left,transparent,#ddd);border-radius:2px}.video-card{background:white;border-radius:18px;margin-bottom:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.08);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;display:flex;align-items:stretch}.video-card:active{transform:scale(0.98)}.video-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.12)}.card-color-bar{width:8px;flex-shrink:0;border-radius:0 8px 8px 0}.card-body{padding:14px 16px;flex:1;display:flex;align-items:center;gap:14px}.card-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}.card-info{flex:1}.card-title{font-size:1rem;font-weight:700;color:#222;margin-bottom:3px}.card-meta{font-size:0.78rem;color:#888;display:flex;gap:10px;align-items:center}.card-play{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:0.9rem;flex-shrink:0}.new-badge{display:inline-block;background:#FF4757;color:white;font-size:0.6rem;padding:2px 8px;border-radius:10px;font-weight:700;margin-bottom:4px}.loading-state{text-align:center;padding:40px 20px;color:#9B59B6}.spinner{width:40px;height:40px;border:4px solid #e0d6f7;border-top-color:#6C3FC5;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 14px}@keyframes spin{to{transform:rotate(360deg)}}.loading-state p{font-size:0.9rem;color:#888}.error-state{background:white;border-radius:18px;padding:24px 20px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.08)}.error-state .emoji{font-size:2.5rem;margin-bottom:10px}.error-state p{font-size:0.88rem;color:#666;line-height:1.7}.retry-btn{margin-top:14px;padding:10px 24px;background:linear-gradient(135deg,#6C3FC5,#E91E8C);color:white;border:none;border-radius:12px;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit}.empty-state{text-align:center;padding:40px 20px;color:#aaa}.empty-state .emoji{font-size:3rem;margin-bottom:12px}.empty-state p{font-size:0.9rem;line-height:1.8}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;border-top:1px solid #eee;box-shadow:0 -4px 20px rgba(0,0,0,0.08);z-index:100}.nav-item{flex:1;padding:10px 0 8px;text-align:center;cursor:pointer;color:#aaa;font-size:0.65rem;transition:color 0.2s}.nav-item.active{color:#6C3FC5}.nav-icon{font-size:1.4rem;display:block;margin-bottom:2px}.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:200;display:none;align-items:flex-end;justify-content:center}.modal-overlay.open{display:flex}.modal-sheet{background:white;border-radius:24px 24px 0 0;width:100%;max-width:480px;padding:20px;animation:slideUp 0.3s ease;max-height:92vh;overflow-y:auto}@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}.modal-handle{width:40px;height:4px;background:#ddd;border-radius:4px;margin:0 auto 16px}.modal-title{font-size:1.1rem;font-weight:700;margin-bottom:4px;color:#222}.modal-meta{font-size:0.8rem;color:#888;margin-bottom:16px}.video-container{position:relative;padding-bottom:56.25%;height:0;border-radius:14px;overflow:hidden;background:#000;margin-bottom:16px}.video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}.modal-desc{background:#f8f4ff;border-right:4px solid #6C3FC5;border-radius:8px;padding:12px 14px;font-size:0.88rem;color:#444;line-height:1.7;margin-bottom:16px}.close-btn{width:100%;padding:13px;background:linear-gradient(135deg,#6C3FC5,#E91E8C);color:white;border:none;border-radius:14px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit}.page{display:none}.page.active{display:block}.about-card{background:white;border-radius:18px;padding:20px;margin-bottom:14px;box-shadow:0 4px 16px rgba(0,0,0,0.07)}.about-card h3{font-size:1rem;font-weight:700;color:#6C3FC5;margin-bottom:8px}.about-card p{font-size:0.88rem;color:#555;line-height:1.8}.teacher-card{background:linear-gradient(135deg,#6C3FC5,#E91E8C);border-radius:18px;padding:24px 20px;text-align:center;color:white;margin-bottom:14px;box-shadow:0 8px 24px rgba(108,63,197,0.3)}.teacher-avatar{font-size:3.5rem;margin-bottom:8px}.teacher-card h2{font-size:1.2rem;font-weight:700}.teacher-card p{font-size:0.85rem;opacity:0.85;margin-top:4px}.info-box{background:linear-gradient(135deg,#667eea22,#764ba222);border:2px dashed #6C3FC5;border-radius:16px;padding:18px;margin-bottom:20px;font-size:0.85rem;color:#444;line-height:1.8}.info-box strong{color:#6C3FC5}.step-box{background:white;border-radius:16px;padding:16px 18px;margin-bottom:12px;box-shadow:0 3px 12px rgba(0,0,0,0.07);display:flex;gap:14px;align-items:flex-start}.step-num{width:32px;height:32px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#6C3FC5,#E91E8C);color:white;font-weight:700;font-size:0.9rem;display:flex;align-items:center;justify-content:center}.step-box p{font-size:0.85rem;color:#444;line-height:1.7;margin:0}.step-box strong{color:#333}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-emoji">📚</div>
+  <h1>مدرسه حافظ</h1>
+  <p>آموزش زبان فارسی — کلاس اول</p>
+</div>
+<div class="wave">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M0,0 C300,60 900,0 1200,40 L1200,60 L0,60 Z" fill="#f0f4ff"/>
+  </svg>
+</div>
+<div class="content">
+  <div class="page active" id="page-lessons">
+    <div id="lessons-container">
+      <div class="loading-state"><div class="spinner"></div><p>در حال بارگذاری درسها...</p></div>
+    </div>
+  </div>
+  <div class="page" id="page-about">
+    <div class="teacher-card">
+      <div class="teacher-avatar">👩🏫</div>
+      <h2>مدرسه حافظ</h2>
+      <p>آموزش زبان فارسی برای کودکان</p>
+    </div>
+    <div class="about-card">
+      <h3>🎯 هدف مدرسه</h3>
+      <p>مدرسه حافظ با هدف آموزش زبان فارسی به کودکان کلاس اول فعالیت میکند. هر هفته یک درس جدید آموزشی برای شما آپلود میشود.</p>
+    </div>
+    <div class="about-card">
+      <h3>📱 چطور استفاده کنیم؟</h3>
+      <p>۱. روی درس موردنظر کلیک کنید<br>۲. ویدیو را با فرزندتان تماشا کنید<br>۳. تمرینهای گفته شده را انجام دهید<br>۴. هر هفته درس جدید اضافه میشود ✨</p>
+    </div>
+    <div class="about-card">
+      <h3>📲 نصب روی موبایل</h3>
+      <p><strong>Android:</strong> منوی مرورگر ← «Add to Home Screen»<br><strong>iPhone:</strong> دکمه Share ← «Add to Home Screen»</p>
+    </div>
+  </div>
+  <div class="page" id="page-teacher">
+    <div class="info-box">
+      <strong>✅ Sheet مدرسه حافظ متصل است</strong><br>
+      برای اضافه کردن درس جدید فقط یک ردیف به Sheet اضافه کنید!
+    </div>
+    <div class="section-title">📋 مراحل افزودن درس جدید</div>
+    <div class="step-box"><div class="step-num">۱</div><p><strong>ویدیو را در YouTube آپلود کنید</strong><br>Visibility را <strong>Unlisted</strong> انتخاب کنید</p></div>
+    <div class="step-box"><div class="step-num">۲</div><p><strong>YouTube ID را کپی کنید</strong><br>از لینک فقط کد بعد از v= را بردارید</p></div>
+    <div class="step-box"><div class="step-num">۳</div><p><strong>در Google Sheet ردیف جدید اضافه کنید</strong><br>ردیف اول = جدیدترین درس</p></div>
+    <div class="step-box"><div class="step-num">۴</div><p><strong>اپ را refresh کنید</strong><br>درس جدید با نشان «جدید» نمایش داده میشود ✅</p></div>
+    <div class="about-card" style="margin-top:8px">
+      <h3>🎨 ستونهای Sheet</h3>
+      <p><strong>A:</strong> عنوان | <strong>B:</strong> توضیح | <strong>C:</strong> تاریخ | <strong>D:</strong> مدت | <strong>E:</strong> YouTube ID | <strong>F:</strong> ایموجی | <strong>G:</strong> رنگ</p>
+    </div>
+    <button onclick="reloadLessons()" style="margin-top:12px;width:100%;padding:11px;background:linear-gradient(135deg,#6C3FC5,#E91E8C);color:white;border:none;border-radius:12px;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit;">🔄 بارگذاری مجدد</button>
+  </div>
+</div>
+<div class="bottom-nav">
+  <div class="nav-item active" id="nav-lessons" onclick="showPage('lessons')"><span class="nav-icon">🎬</span>درسها</div>
+  <div class="nav-item" id="nav-about" onclick="showPage('about')"><span class="nav-icon">i️</span>درباره</div>
+  <div class="nav-item" id="nav-teacher" onclick="showPage('teacher')"><span class="nav-icon">⚙️</span>معلم</div>
+</div>
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="modal-title"></div>
+    <div class="modal-meta" id="modal-meta"></div>
+    <div class="video-container"><iframe id="modal-iframe" src="" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="modal-desc" id="modal-desc"></div>
+    <button class="close-btn" onclick="closeModal()">✕ بستن</button>
+  </div>
+</div>
+<script>
+const SHEET_ID='1xL2gBPAYSiIxC7K9YDcgWpOAepWixBnnz4lLxMg0DGM';
+async function loadLessons(){
+  const container=document.getElementById('lessons-container');
+  container.innerHTML='<div class="loading-state"><div class="spinner"></div><p>در حال بارگذاری درسها...</p></div>';
+  try{
+    const url=`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+    const res=await fetch(url);
+    if(!res.ok)throw new Error('خطا');
+    const text=await res.text();
+    const json=JSON.parse(text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\);/)[1]);
+    const rows=json.table.rows;
+    if(!rows||rows.length===0){
+      container.innerHTML='<div class="empty-state"><div class="emoji">📭</div><p>هنوز درسی اضافه نشده<br><br>معلم محترم، لطفاً اولین درس را در Google Sheet وارد کنید</p></div>';
+      return;
+    }
+    const videos=rows.map((row,i)=>({
+      title:row.c[0]?.v||'',desc:row.c[1]?.v||'',date:row.c[2]?.v||'',
+      dur:row.c[3]?.v||'',ytid:row.c[4]?.v||'',emoji:row.c[5]?.v||'📹',
+      color:row.c[6]?.v||'#A29BFE',isNew:i===0
+    })).filter(v=>v.title&&v.ytid);
+    let html='<div class="section-title">🆕 جدیدترین درس</div>'+makeCard(videos[0],true);
+    if(videos.length>1){
+      html+='<div class="section-title">📅 هفتههای قبل</div>';
+      for(let i=1;i<videos.length;i++)html+=makeCard(videos[i],false);
+    }
+    container.innerHTML=html;
+  }catch(e){
+    container.innerHTML='<div class="error-state"><div class="emoji">⚠️</div><p>اتصال به Sheet ناموفق بود.<br>مطمئن شوید Sheet روی «Anyone with the link» تنظیم است.</p><button class="retry-btn" onclick="loadLessons()">🔄 دوباره تلاش</button></div>';
+  }
+}
+function makeCard(v,isNew){
+  const bg=hexToLight(v.color),d=darken(v.color),t=esc(v.title),desc=esc(v.desc),date=esc(v.date);
+  return `<div class="video-card" onclick="openVideo('${t}','${date} | ${v.dur}','${v.ytid}','${desc}','${v.color}')">
+    <div class="card-color-bar" style="background:linear-gradient(to bottom,${v.color},${d});"></div>
+    <div class="card-body">
+      <div class="card-icon" style="background:${bg};">${v.emoji}</div>
+      <div class="card-info">
+        ${isNew?'<div><span class="new-badge">جدید</span></div>':''}
+        <div class="card-title">${v.title}</div>
+        <div class="card-meta"><span>📅 ${v.date}</span><span>⏱ ${v.dur}</span></div>
+      </div>
+      <div class="card-play" style="background:linear-gradient(135deg,${v.color},${d});">▶</div>
+    </div>
+  </div>`;
+}
+function esc(s){return(s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;')}
+function hexToLight(hex){try{const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return`rgba(${r},${g},${b},0.12)`}catch(e){return'#f5f5f5'}}
+function darken(hex){try{let r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);r=Math.max(0,r-40);g=Math.max(0,g-40);b=Math.max(0,b-40);return`#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`}catch(e){return hex}}
+function showPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));document.getElementById('page-'+name).classList.add('active');document.getElementById('nav-'+name).classList.add('active')}
+function openVideo(title,meta,ytid,desc){document.getElementById('modal-title').textContent=title;document.getElementById('modal-meta').textContent=meta;document.getElementById('modal-iframe').src=`https://www.youtube.com/embed/${ytid}?autoplay=1&rel=0`;document.getElementById('modal-desc').textContent=desc;document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.getElementById('modal-iframe').src='';document.body.style.overflow=''}
+function closeModalOutside(e){if(e.target===document.getElementById('modal'))closeModal()}
+function reloadLessons(){showPage('lessons');loadLessons()}
+window.addEventListener('load',loadLessons);
+</script>
+</body>
+</html>
