@@ -52,5 +52,14 @@
     "videoUrl": "https://archive.org/download/hafiz-s2-1795691296598/جلسه اول.mp4",
     "identifier": "hafiz-s2-1795691296598",
     "date": "۱۴۰۵/۹/۵"
+  },
+  {
+    "session": 2,
+    "title": "درس سوم",
+    "description": "",
+    "duration": "7 دقیقه",
+    "videoUrl": "https://archive.org/download/hafiz-s2-1795691671108/درس سوم.mp4",
+    "identifier": "hafiz-s2-1795691671108",
+    "date": "۱۴۰۵/۹/۵"
   }
 ]
