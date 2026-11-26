@@ -9,22 +9,18 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f0f4ff;color:#222;direction:rtl;min-height:100vh}
 
-/* HEADER */
 .header{background:linear-gradient(135deg,#6C3FC5,#E91E8C);color:white;padding:24px 20px;text-align:center}
 .header-icon{font-size:2.8rem;margin-bottom:8px}
 .header h1{font-size:1.6rem;font-weight:800;letter-spacing:1px}
 .header p{font-size:0.85rem;opacity:0.85;margin-top:5px}
 
-/* STATS */
 .stats{display:flex;justify-content:center;gap:24px;margin-top:16px}
 .stat{text-align:center}
 .stat-num{font-size:1.4rem;font-weight:800}
 .stat-lbl{font-size:0.72rem;opacity:0.8}
 
-/* CONTAINER */
 .container{max-width:640px;margin:0 auto;padding:20px 14px}
 
-/* SESSION CARD */
 .session-card{background:white;border-radius:18px;margin-bottom:14px;overflow:hidden;box-shadow:0 3px 14px rgba(108,63,197,0.10)}
 
 .session-header{
@@ -41,7 +37,6 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f0f4ff;color:#222;dire
 .session-body{display:none;padding:14px;background:#fdfcff}
 .session-body.open{display:block}
 
-/* LESSON CARD */
 .lesson-card{background:white;border-radius:14px;padding:14px;margin-bottom:12px;border:1.5px solid #ede8ff;position:relative}
 .lesson-card:last-child{margin-bottom:0}
 
@@ -51,21 +46,49 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f0f4ff;color:#222;dire
 .lesson-meta{font-size:0.75rem;color:#bbb;margin-bottom:8px;padding-left:36px}
 .lesson-desc{font-size:0.83rem;color:#666;margin-bottom:12px;line-height:1.6}
 
-video{width:100%;border-radius:10px;background:#111;max-height:220px}
-.video-wrap{position:relative}
-.video-loading{position:absolute;inset:0;background:#1a1a2e;border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:0.85rem;pointer-events:none;opacity:1;transition:opacity 0.3s;cursor:pointer}
-.video-loading.hide{opacity:0;pointer-events:none}
-.play-btn{font-size:2.5rem;margin-bottom:6px;display:block}
-.play-hint{font-size:0.8rem;opacity:0.8}
+video{width:100%;border-radius:10px;background:#111;max-height:220px;display:block}
 
-/* EMPTY / LOADING */
+/* VIDEO THUMBNAIL OVERLAY */
+.video-wrap{position:relative;border-radius:10px;overflow:hidden;background:#1a1a2e;min-height:160px}
+
+.video-thumb{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,#1a1a2e,#2d1b69);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;
+  transition:background 0.2s;
+  border-radius:10px;
+}
+.video-thumb:hover{background:linear-gradient(135deg,#2d1b69,#4a2a99)}
+.video-thumb.hide{display:none}
+
+.play-circle{
+  width:64px;height:64px;border-radius:50%;
+  background:linear-gradient(135deg,#E91E8C,#FF6B9D);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:10px;
+  box-shadow:0 4px 20px rgba(233,30,140,0.4);
+}
+.play-circle svg{width:28px;height:28px;fill:white;margin-right:-4px}
+.play-label{color:white;font-size:0.85rem;opacity:0.85}
+
+.video-buffering{
+  position:absolute;inset:0;
+  background:rgba(26,26,46,0.85);
+  display:none;align-items:center;justify-content:center;
+  border-radius:10px;
+  flex-direction:column;gap:8px;
+  color:white;font-size:0.82rem;
+}
+.video-buffering.show{display:flex}
+.spinner-sm{width:28px;height:28px;border:3px solid rgba(255,255,255,0.2);border-top-color:white;border-radius:50%;animation:spin 0.7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
 .empty{text-align:center;padding:60px 20px;color:#bbb}
 .empty-icon{font-size:3rem;margin-bottom:12px}
 .loading{text-align:center;padding:50px;color:#9B59B6}
 .spinner{width:36px;height:36px;border:4px solid #e8e0f7;border-top-color:#6C3FC5;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 12px}
-@keyframes spin{to{transform:rotate(360deg)}}
 
-/* FOOTER */
 .footer{text-align:center;padding:24px;color:#ccc;font-size:0.78rem}
 </style>
 </head>
@@ -94,14 +117,66 @@ video{width:100%;border-radius:10px;background:#111;max-height:220px}
 
 <script>
 const LESSONS_URL = "https://raw.githubusercontent.com/hafizschool340-alt/hafiz-school/main/lessons.json";
-
 const toF = n => String(n).replace(/[0-9]/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
 
-// ✅ FIX: src را فقط موقع کلیک set میکنیم — نه موقع render
-function activateVideo(overlay, videoEl, videoUrl) {
-  overlay.classList.add('hide');
-  videoEl.src = videoUrl;
-  videoEl.play();
+function buildLessonCard(lesson, li) {
+  const lc = document.createElement("div");
+  lc.className = "lesson-card";
+
+  // Header info
+  const info = document.createElement("div");
+  info.innerHTML = `
+    <div class="lesson-num">${toF(li+1)}</div>
+    <div class="lesson-title">${lesson.title}</div>
+    <div class="lesson-meta">${lesson.date||""}${lesson.duration ? "  ⏱ "+lesson.duration+" دقیقه" : ""}</div>
+    ${lesson.description ? `<div class="lesson-desc">${lesson.description}</div>` : ""}`;
+  lc.appendChild(info);
+
+  // Video wrap
+  const wrap = document.createElement("div");
+  wrap.className = "video-wrap";
+
+  // Video element — NO src yet
+  const vid = document.createElement("video");
+  vid.controls = true;
+  vid.playsInline = true;
+  wrap.appendChild(vid);
+
+  // Buffering indicator
+  const buf = document.createElement("div");
+  buf.className = "video-buffering";
+  buf.innerHTML = `<div class="spinner-sm"></div><span>در حال بارگذاری...</span>`;
+  wrap.appendChild(buf);
+
+  // Play overlay — کلیک اینجا src را set میکند
+  const thumb = document.createElement("div");
+  thumb.className = "video-thumb";
+  thumb.innerHTML = `
+    <div class="play-circle">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+    <span class="play-label">برای پخش کلیک کنید</span>`;
+
+  thumb.addEventListener("click", () => {
+    thumb.classList.add("hide");
+    buf.classList.add("show");
+    // ✅ src فقط اینجا set میشود
+    vid.src = lesson.videoUrl;
+    vid.load();
+    vid.addEventListener("canplay", () => {
+      buf.classList.remove("show");
+      vid.play();
+    }, { once: true });
+    vid.addEventListener("error", () => {
+      buf.classList.remove("show");
+      buf.innerHTML = `<span>❌ خطا در بارگذاری ویدیو</span>`;
+      buf.classList.add("show");
+    }, { once: true });
+  });
+
+  wrap.appendChild(thumb);
+  lc.appendChild(wrap);
+  return lc;
 }
 
 async function load() {
@@ -111,11 +186,10 @@ async function load() {
     const lessons = await r.json();
 
     if (!lessons.length) {
-      app.innerHTML = '<div class="empty"><div class="empty-icon">📝</div><p>هنوز درسی اضافه نشده</p><small style="color:#ddd">به زودی اولین درس منتشر میشود!</small></div>';
+      app.innerHTML = '<div class="empty"><div class="empty-icon">📝</div><p>هنوز درسی اضافه نشده</p></div>';
       return;
     }
 
-    // Stats
     const sessions = {};
     lessons.forEach(l => {
       if (!sessions[l.session]) sessions[l.session] = [];
@@ -146,40 +220,7 @@ async function load() {
       body.className = "session-body" + (idx===0 ? " open" : "");
 
       items.forEach((lesson, li) => {
-        const lc = document.createElement("div");
-        lc.className = "lesson-card";
-
-        // ✅ FIX: video بدون src ساخته میشود
-        const videoWrap = document.createElement("div");
-        videoWrap.className = "video-wrap";
-
-        const videoEl = document.createElement("video");
-        videoEl.controls = true;
-        // ❌ حذف شد: videoEl.src = lesson.videoUrl  ← این باعث autoplay بود
-        videoEl.addEventListener('canplay', () => {
-          overlay.classList.add('hide');
-        });
-
-        const overlay = document.createElement("div");
-        overlay.className = "video-loading";
-        overlay.innerHTML = `<span class="play-btn">▶️</span><span class="play-hint">برای پخش کلیک کنید</span>`;
-        overlay.addEventListener('click', () => {
-          activateVideo(overlay, videoEl, lesson.videoUrl);
-        });
-
-        videoWrap.appendChild(videoEl);
-        videoWrap.appendChild(overlay);
-
-        const header = document.createElement("div");
-        header.innerHTML = `
-          <div class="lesson-num">${toF(li+1)}</div>
-          <div class="lesson-title">${lesson.title}</div>
-          <div class="lesson-meta">${lesson.date||""}${lesson.duration ? "  ⏱ "+toF(lesson.duration)+" دقیقه" : ""}</div>
-          ${lesson.description ? `<div class="lesson-desc">${lesson.description}</div>` : ""}`;
-
-        lc.appendChild(header);
-        lc.appendChild(videoWrap);
-        body.appendChild(lc);
+        body.appendChild(buildLessonCard(lesson, li));
       });
 
       hdr.addEventListener("click", () => {
@@ -193,7 +234,7 @@ async function load() {
     });
 
   } catch(e) {
-    app.innerHTML = '<div class="empty"><div class="empty-icon">❌</div><p>خطا در بارگذاری</p><small>' + e.message + '</small></div>';
+    app.innerHTML = `<div class="empty"><div class="empty-icon">❌</div><p>خطا در بارگذاری</p><small>${e.message}</small></div>`;
   }
 }
 
