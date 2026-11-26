@@ -97,7 +97,7 @@ video{width:100%;border-radius:10px;background:#111;max-height:220px;display:blo
 <div class="header">
   <div class="header-icon">📚</div>
   <h1>مدرسه حافظ</h1>
-  <p>درسهای فارسی – صنف اول</p>
+  <p>کهکشان اولیها</p>
   <div class="stats">
     <div class="stat"><div class="stat-num" id="totalSessions">۰</div><div class="stat-lbl">جلسه</div></div>
     <div class="stat"><div class="stat-num" id="totalLessons">۰</div><div class="stat-lbl">درس</div></div>
@@ -199,7 +199,7 @@ async function load() {
     document.getElementById("totalSessions").textContent = toF(Object.keys(sessions).length);
     document.getElementById("totalLessons").textContent = toF(lessons.length);
 
-    const nums = Object.keys(sessions).map(Number).sort((a,b) => a-b);
+    const nums = Object.keys(sessions).map(Number).sort((a,b) => b-a);
     app.innerHTML = "";
 
     nums.forEach((sNum, idx) => {
