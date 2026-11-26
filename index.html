@@ -467,20 +467,11 @@ function buildLessonCard(lesson, li) {
     '</div>' +
     (lesson.description ? '<div class="lesson-desc">' + lesson.description + '</div>' : '');
 
-  // Video wrap
+  // Video wrap — iframe archive.org (CORS-safe)
   const wrap = document.createElement("div");
   wrap.className = "video-wrap";
 
-  const vid = document.createElement("video");
-  vid.controls = true;
-  vid.playsInline = true;
-  wrap.appendChild(vid);
-
-  const buf = document.createElement("div");
-  buf.className = "video-buffering";
-  buf.innerHTML = '<div class="spinner-sm"></div><span>در حال بارگذاری...</span>';
-  wrap.appendChild(buf);
-
+  // thumb overlay — کلیک = جایگزینی با iframe
   const thumb = document.createElement("div");
   thumb.className = "video-thumb";
   thumb.innerHTML =
@@ -488,16 +479,25 @@ function buildLessonCard(lesson, li) {
     '<span class="play-label">▶ برای پخش کلیک کنید</span>';
 
   thumb.addEventListener("click", () => {
-    thumb.classList.add("hide");
-    buf.classList.add("show");
-    vid.src = lesson.videoUrl;
-    vid.load();
-    vid.addEventListener("canplay", () => { buf.classList.remove("show"); vid.play(); }, { once:true });
-    vid.addEventListener("error",   () => {
-      buf.classList.remove("show");
-      buf.innerHTML = '<span>❌ خطا در بارگذاری ویدیو</span>';
-      buf.classList.add("show");
-    }, { once:true });
+    // ساخت identifier از videoUrl
+    const urlParts = lesson.videoUrl.split('/download/');
+    const identifier = urlParts[1] ? urlParts[1].split('/')[0] : '';
+    if (!identifier) return;
+
+    // iframe embed archive.org
+    const iframe = document.createElement("iframe");
+    iframe.src = "https://archive.org/embed/" + identifier;
+    iframe.width  = "100%";
+    iframe.height = "280";
+    iframe.frameBorder = "0";
+    iframe.allowFullscreen = true;
+    iframe.allow = "fullscreen";
+    iframe.style.borderRadius = "16px";
+    iframe.style.display = "block";
+
+    wrap.innerHTML = "";
+    wrap.style.minHeight = "auto";
+    wrap.appendChild(iframe);
   });
 
   wrap.appendChild(thumb);
@@ -509,6 +509,7 @@ loadData();
 </script>
 </body>
 </html>
+
 
 
 
