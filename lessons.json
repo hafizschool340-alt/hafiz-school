@@ -7,5 +7,14 @@
     "videoUrl": "https://archive.org/download/hafiz-s1-1795690163702/درس اول.mp4",
     "identifier": "hafiz-s1-1795690163702",
     "date": "۱۴۰۵/۹/۵"
+  },
+  {
+    "session": 1,
+    "title": "درس دوم",
+    "description": "",
+    "duration": "7 دقیقه",
+    "videoUrl": "https://archive.org/download/hafiz-s1-1795690474042/درس اول بخش دوم.mp4",
+    "identifier": "hafiz-s1-1795690474042",
+    "date": "۱۴۰۵/۹/۵"
   }
 ]
