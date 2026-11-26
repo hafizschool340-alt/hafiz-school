@@ -2,173 +2,108 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="مدرسه حافظ">
-<meta name="theme-color" content="#6C3FC5">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مدرسه حافظ</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f0f4ff;color:#222;min-height:100vh;direction:rtl}.header{background:linear-gradient(135deg,#6C3FC5 0%,#9B59B6 50%,#E91E8C 100%);color:white;padding:18px 20px 60px;text-align:center;position:relative;overflow:hidden}.header::before{content:'';position:absolute;top:-40px;left:-40px;width:180px;height:180px;background:rgba(255,255,255,0.08);border-radius:50%}.header::after{content:'';position:absolute;bottom:-60px;right:-30px;width:220px;height:220px;background:rgba(255,255,255,0.06);border-radius:50%}.header-emoji{font-size:2.8rem;margin-bottom:6px}.header h1{font-size:1.7rem;font-weight:700}.header p{font-size:0.9rem;opacity:0.85;margin-top:4px}.wave{background:linear-gradient(135deg,#6C3FC5 0%,#9B59B6 50%,#E91E8C 100%);height:50px;position:relative}.wave svg{position:absolute;bottom:0;left:0;width:100%;height:60px}.content{padding:16px 16px 100px;max-width:480px;margin:0 auto}.session-card{background:white;border-radius:20px;margin-bottom:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);overflow:hidden}.session-header{padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;user-select:none}.session-num{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;font-weight:800;flex-shrink:0}.session-info{flex:1}.session-title{font-size:1rem;font-weight:700;color:#222;margin-bottom:3px}.session-meta{font-size:0.78rem;color:#888}.session-arrow{font-size:1rem;color:#bbb;transition:transform 0.3s;flex-shrink:0}.session-card.open .session-arrow{transform:rotate(180deg)}.new-badge{display:inline-block;background:#FF4757;color:white;font-size:0.6rem;padding:2px 7px;border-radius:10px;font-weight:700;margin-right:6px}.video-list{display:none;border-top:1px solid #f0f0f0}.session-card.open .video-list{display:block}.video-item{display:flex;align-items:center;gap:14px;padding:13px 18px;cursor:pointer;transition:background 0.15s;border-bottom:1px solid #f8f8f8}.video-item:last-child{border-bottom:none}.video-item:active{background:#f8f4ff}.video-item:hover{background:#f8f4ff}.play-btn{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:0.85rem;flex-shrink:0}.video-item-info{flex:1}.video-item-title{font-size:0.9rem;font-weight:600;color:#333;margin-bottom:2px}.video-item-meta{font-size:0.75rem;color:#aaa}.video-item-arrow{color:#ddd;font-size:0.8rem}.loading-state{text-align:center;padding:50px 20px;color:#9B59B6}.spinner{width:44px;height:44px;border:4px solid #e0d6f7;border-top-color:#6C3FC5;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 16px}@keyframes spin{to{transform:rotate(360deg)}}.loading-state p{font-size:0.9rem;color:#888}.error-state{background:white;border-radius:18px;padding:28px 20px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.08)}.error-state .emoji{font-size:2.5rem;margin-bottom:10px}.error-state p{font-size:0.88rem;color:#666;line-height:1.7}.retry-btn{margin-top:14px;padding:11px 28px;background:linear-gradient(135deg,#6C3FC5,#E91E8C);color:white;border:none;border-radius:12px;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit}.empty-state{text-align:center;padding:50px 20px;color:#aaa}.empty-state .emoji{font-size:3.5rem;margin-bottom:14px}.empty-state p{font-size:0.9rem;line-height:1.9}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;border-top:1px solid #eee;box-shadow:0 -4px 20px rgba(0,0,0,0.08);z-index:100}.nav-item{flex:1;padding:10px 0 8px;text-align:center;cursor:pointer;color:#aaa;font-size:0.65rem;transition:color 0.2s}.nav-item.active{color:#6C3FC5}.nav-icon{font-size:1.4rem;display:block;margin-bottom:2px}.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.78);z-index:200;display:none;align-items:flex-end;justify-content:center}.modal-overlay.open{display:flex}.modal-sheet{background:white;border-radius:24px 24px 0 0;width:100%;max-width:480px;padding:20px;animation:slideUp 0.3s ease;max-height:92vh;overflow-y:auto}@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}.modal-handle{width:40px;height:4px;background:#ddd;border-radius:4px;margin:0 auto 16px}.modal-title{font-size:1.1rem;font-weight:700;margin-bottom:4px;color:#222}.modal-meta{font-size:0.8rem;color:#888;margin-bottom:16px}.video-container{position:relative;padding-bottom:56.25%;height:0;border-radius:14px;overflow:hidden;background:#000;margin-bottom:16px}.video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}.modal-desc{background:#f8f4ff;border-right:4px solid #6C3FC5;border-radius:8px;padding:12px 14px;font-size:0.88rem;color:#444;line-height:1.7;margin-bottom:16px}.close-btn{width:100%;padding:13px;background:linear-gradient(135deg,#6C3FC5,#E91E8C);color:white;border:none;border-radius:14px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit}.page{display:none}.page.active{display:block}.about-card{background:white;border-radius:18px;padding:20px;margin-bottom:14px;box-shadow:0 4px 16px rgba(0,0,0,0.07)}.about-card h3{font-size:1rem;font-weight:700;color:#6C3FC5;margin-bottom:8px}.about-card p{font-size:0.88rem;color:#555;line-height:1.9}.teacher-card{background:linear-gradient(135deg,#6C3FC5,#E91E8C);border-radius:18px;padding:24px 20px;text-align:center;color:white;margin-bottom:14px;box-shadow:0 8px 24px rgba(108,63,197,0.3)}.teacher-avatar{font-size:3.5rem;margin-bottom:8px}.teacher-card h2{font-size:1.2rem;font-weight:700}.teacher-card p{font-size:0.85rem;opacity:0.85;margin-top:4px}.step-box{background:white;border-radius:16px;padding:16px 18px;margin-bottom:12px;box-shadow:0 3px 12px rgba(0,0,0,0.07);display:flex;gap:14px;align-items:flex-start}.step-num{width:34px;height:34px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#6C3FC5,#E91E8C);color:white;font-weight:700;font-size:0.9rem;display:flex;align-items:center;justify-content:center}.step-box p{font-size:0.85rem;color:#444;line-height:1.7;margin:0}.info-box{background:linear-gradient(135deg,#667eea15,#764ba215);border:2px dashed #6C3FC5;border-radius:16px;padding:18px;margin-bottom:16px;font-size:0.85rem;color:#444;line-height:1.9}.info-box strong{color:#6C3FC5}code{background:#f0ebff;padding:2px 7px;border-radius:6px;font-family:monospace;font-size:0.8rem;color:#6C3FC5}.c0{background:linear-gradient(135deg,#6C3FC5,#9B59B6)}.c1{background:linear-gradient(135deg,#E91E8C,#FF6B9D)}.c2{background:linear-gradient(135deg,#FF6B6B,#FF8E53)}.c3{background:linear-gradient(135deg,#4ECDC4,#44A08D)}.c4{background:linear-gradient(135deg,#A29BFE,#6C5CE7)}.c5{background:linear-gradient(135deg,#FDCB6E,#E17055)}.c6{background:linear-gradient(135deg,#74B9FF,#0984E3)}.c7{background:linear-gradient(135deg,#FD79A8,#E84393)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f0f4ff;color:#222;direction:rtl;min-height:100vh}
+.header{background:linear-gradient(135deg,#6C3FC5,#E91E8C);color:white;padding:20px 24px;text-align:center}
+.header h1{font-size:1.5rem;font-weight:800}
+.header p{font-size:0.85rem;opacity:0.85;margin-top:4px}
+.container{max-width:600px;margin:0 auto;padding:20px 16px}
+.session-card{background:white;border-radius:16px;margin-bottom:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+.session-header{background:linear-gradient(135deg,#6C3FC5,#9B59B6);color:white;padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.session-header h2{font-size:1rem;font-weight:700}
+.session-header span{font-size:1.2rem;transition:transform 0.3s}
+.session-header.open span{transform:rotate(180deg)}
+.session-body{display:none;padding:12px}
+.session-body.open{display:block}
+.lesson-card{background:#faf8ff;border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid #e8e0f7}
+.lesson-title{font-size:0.95rem;font-weight:700;color:#333;margin-bottom:4px}
+.lesson-meta{font-size:0.78rem;color:#aaa;margin-bottom:10px}
+.lesson-desc{font-size:0.85rem;color:#555;margin-bottom:12px}
+video{width:100%;border-radius:10px;background:#000}
+.empty{text-align:center;padding:60px 20px;color:#bbb}
+.loading{text-align:center;padding:40px;color:#9B59B6;font-size:1rem}
 </style>
 </head>
 <body>
 <div class="header">
-  <div class="header-emoji">📚</div>
+  <div style="font-size:2.5rem;margin-bottom:8px">📚</div>
   <h1>مدرسه حافظ</h1>
-  <p>آموزش زبان فارسی — کلاس اول</p>
+  <p>درسهای فارسی — صنف اول</p>
 </div>
-<div class="wave">
-  <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-    <path d="M0,0 C300,60 900,0 1200,40 L1200,60 L0,60 Z" fill="#f0f4ff"/>
-  </svg>
-</div>
-<div class="content">
-  <div class="page active" id="page-lessons">
-    <div id="lessons-container">
-      <div class="loading-state"><div class="spinner"></div><p>در حال بارگذاری جلسات...</p></div>
-    </div>
-  </div>
-  <div class="page" id="page-about">
-    <div class="teacher-card">
-      <div class="teacher-avatar">👩🏫</div>
-      <h2>مدرسه حافظ</h2>
-      <p>آموزش زبان فارسی برای کودکان</p>
-    </div>
-    <div class="about-card">
-      <h3>🎯 هدف مدرسه</h3>
-      <p>مدرسه حافظ با هدف آموزش زبان فارسی به کودکان کلاس اول فعالیت میکند. هر هفته جلسه جدید اضافه میشود.</p>
-    </div>
-    <div class="about-card">
-      <h3>📱 چطور استفاده کنیم؟</h3>
-      <p>۱. روی جلسه موردنظر کلیک کنید<br>۲. ویدیوهای جلسه را ببینید<br>۳. ویدیو را با فرزندتان تماشا کنید<br>۴. هر هفته جلسه جدید اضافه میشود ✨</p>
-    </div>
-    <div class="about-card">
-      <h3>📲 نصب روی موبایل</h3>
-      <p><strong>Android:</strong> منوی مرورگر ← «Add to Home Screen»<br><strong>iPhone:</strong> دکمه Share ← «Add to Home Screen»</p>
-    </div>
-  </div>
-  <div class="page" id="page-teacher">
-    <div class="info-box">
-      <strong>✅ راهنمای اضافه کردن جلسه جدید</strong><br><br>
-      فقط در Google Sheet ردیف جدید اضافه کنید — اپ خودکار بروز میشود!
-    </div>
-    <div class="about-card" style="margin-bottom:14px">
-      <h3>📊 ستونهای Google Sheet</h3>
-      <p>
-        <strong>A — جلسه:</strong> عدد جلسه (1 یا 2 یا 3...)<br>
-        <strong>B — عنوان:</strong> نام ویدیو (مثلاً «حرف آ»)<br>
-        <strong>C — توضیح:</strong> یک جمله کوتاه<br>
-        <strong>D — مدت:</strong> مثلاً «۴ دقیقه»<br>
-        <strong>E — YouTube ID:</strong> کد ویدیو
-      </p>
-    </div>
-    <div class="about-card" style="margin-bottom:14px">
-      <h3>📝 مثال</h3>
-      <p style="font-family:monospace;font-size:0.8rem;line-height:2.2">
-        A=1 | B=حرف آ | C=یادگیری حرف آ | D=۴ دقیقه | E=abc123<br>
-        A=1 | B=حرف ب | C=یادگیری حرف ب | D=۳ دقیقه | E=def456<br>
-        A=2 | B=اعداد | C=شمارش اعداد | D=۵ دقیقه | E=ghi789
-      </p>
-    </div>
-    <button onclick="reloadLessons()" style="width:100%;padding:13px;background:linear-gradient(135deg,#6C3FC5,#E91E8C);color:white;border:none;border-radius:14px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;">
-      🔄 بارگذاری مجدد جلسات
-    </button>
-  </div>
-</div>
-<div class="bottom-nav">
-  <div class="nav-item active" id="nav-lessons" onclick="showPage('lessons')"><span class="nav-icon">🎬</span>جلسات</div>
-  <div class="nav-item" id="nav-about" onclick="showPage('about')"><span class="nav-icon">i️</span>درباره</div>
-  <div class="nav-item" id="nav-teacher" onclick="showPage('teacher')"><span class="nav-icon">⚙️</span>معلم</div>
-</div>
-<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
-  <div class="modal-sheet">
-    <div class="modal-handle"></div>
-    <div class="modal-title" id="modal-title"></div>
-    <div class="modal-meta" id="modal-meta"></div>
-    <div class="video-container"><iframe id="modal-iframe" src="" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="modal-desc" id="modal-desc"></div>
-    <button class="close-btn" onclick="closeModal()">✕ بستن</button>
-  </div>
+<div class="container">
+  <div id="app"><div class="loading">⏳ در حال بارگذاری...</div></div>
 </div>
 <script>
-const SHEET_ID='1xL2gBPAYSiIxC7K9YDcgWpOAepWixBnnz4lLxMg0DGM';
-const COLORS=['c0','c1','c2','c3','c4','c5','c6','c7'];
-const DEMO=[
-  {session:2,title:'اعداد ۱ تا ۵',desc:'شمارش اعداد با تصویر و بازی',dur:'۵ دقیقه',ytid:'dQw4w9WgXcQ'},
-  {session:2,title:'اعداد ۶ تا ۱۰',desc:'ادامه اعداد و تمرین',dur:'۴ دقیقه',ytid:'dQw4w9WgXcQ'},
-  {session:1,title:'حرف آ',desc:'صدا و شکل نوشتن حرف آ',dur:'۴ دقیقه',ytid:'dQw4w9WgXcQ'},
-  {session:1,title:'حرف ب',desc:'صدا و شکل نوشتن حرف ب',dur:'۳ دقیقه',ytid:'dQw4w9WgXcQ'},
-  {session:1,title:'حرف پ',desc:'صدا و شکل نوشتن حرف پ',dur:'۳ دقیقه',ytid:'dQw4w9WgXcQ'},
-];
-async function loadLessons(){
-  const container=document.getElementById('lessons-container');
-  container.innerHTML='<div class="loading-state"><div class="spinner"></div><p>در حال بارگذاری جلسات...</p></div>';
-  try{
-    const url=`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
-    const res=await fetch(url);
-    if(!res.ok)throw new Error('خطا');
-    const text=await res.text();
-    const json=JSON.parse(text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\);/)[1]);
-    const rows=json.table.rows;
-    if(!rows||rows.length===0){renderSessions(DEMO,container,true);return;}
-    const videos=rows.map(row=>({
-      session:parseInt(row.c[0]?.v)||1,
-      title:row.c[1]?.v||'',
-      desc:row.c[2]?.v||'',
-      dur:row.c[3]?.v||'',
-      ytid:row.c[4]?.v||'',
-    })).filter(v=>v.title&&v.ytid);
-    if(videos.length===0){renderSessions(DEMO,container,true);return;}
-    renderSessions(videos,container,false);
-  }catch(e){
-    container.innerHTML='<div class="error-state"><div class="emoji">⚠️</div><p>اتصال به Sheet ناموفق بود.<br>مطمئن شوید Sheet روی «Anyone with the link» است.</p><button class="retry-btn" onclick="loadLessons()">🔄 دوباره تلاش</button></div>';
+const LESSONS_URL = "https://raw.githubusercontent.com/hafizschool340-alt/hafiz-school/main/lessons.json";
+
+async function load() {
+  const app = document.getElementById("app");
+  try {
+    const r = await fetch(LESSONS_URL + "?t=" + Date.now());
+    const lessons = await r.json();
+
+    if (!lessons.length) {
+      app.innerHTML = '<div class="empty">📭 هنوز درسی اضافه نشده<br><small>به زودی اولین درس منتشر میشود!</small></div>';
+      return;
+    }
+
+    // Group by session
+    const sessions = {};
+    lessons.forEach(l => {
+      if (!sessions[l.session]) sessions[l.session] = [];
+      sessions[l.session].push(l);
+    });
+
+    const nums = Object.keys(sessions).sort((a,b) => b-a);
+    app.innerHTML = "";
+
+    nums.forEach((sNum, idx) => {
+      const items = sessions[sNum];
+      const card = document.createElement("div");
+      card.className = "session-card";
+
+      const hdr = document.createElement("div");
+      hdr.className = "session-header" + (idx===0?" open":"");
+      hdr.innerHTML = `<h2>📖 جلسه ${toFarsi(sNum)} <small style="opacity:0.7;font-size:0.8rem">(${toFarsi(items.length)} درس)</small></h2><span>▼</span>`;
+
+      const body = document.createElement("div");
+      body.className = "session-body" + (idx===0?" open":"");
+
+      items.forEach(lesson => {
+        const lc = document.createElement("div");
+        lc.className = "lesson-card";
+        lc.innerHTML = `
+          <div class="lesson-title">🎬 ${lesson.title}</div>
+          <div class="lesson-meta">📅 ${lesson.date || ""}  ${lesson.duration ? "⏱ "+toFarsi(lesson.duration)+" دقیقه" : ""}</div>
+          ${lesson.description ? `<div class="lesson-desc">${lesson.description}</div>` : ""}
+          <video controls preload="metadata" src="${lesson.videoUrl}"></video>
+        `;
+        body.appendChild(lc);
+      });
+
+      hdr.addEventListener("click", () => {
+        hdr.classList.toggle("open");
+        body.classList.toggle("open");
+      });
+
+      card.appendChild(hdr);
+      card.appendChild(body);
+      app.appendChild(card);
+    });
+
+  } catch(e) {
+    app.innerHTML = '<div class="empty">❌ خطا در بارگذاری<br><small>' + e.message + '</small></div>';
   }
 }
-function renderSessions(videos,container,isDemo){
-  const sessionMap={};
-  videos.forEach(v=>{if(!sessionMap[v.session])sessionMap[v.session]=[];sessionMap[v.session].push(v);});
-  const sessionNums=Object.keys(sessionMap).map(Number).sort((a,b)=>b-a);
-  let html='';
-  if(isDemo)html+='<div style="background:#fff9e6;border:2px dashed #FDCB6E;border-radius:14px;padding:12px 16px;margin-bottom:16px;font-size:0.82rem;color:#856404;">📌 <strong>نمونه آزمایشی</strong> — برای جلسات واقعی، درس را در Google Sheet وارد کنید</div>';
-  sessionNums.forEach((sNum,idx)=>{
-    const vids=sessionMap[sNum];
-    const colorClass=COLORS[idx%COLORS.length];
-    const isNewest=idx===0;
-    html+=`<div class="session-card ${isNewest?'open':''}" id="session-${sNum}">
-      <div class="session-header" onclick="toggleSession(${sNum})">
-        <div class="session-num ${colorClass}">${toFarsi(sNum)}</div>
-        <div class="session-info">
-          ${isNewest?'<span class="new-badge">جدید</span>':''}
-          <div class="session-title">جلسه ${toFarsi(sNum)}</div>
-          <div class="session-meta">${toFarsi(vids.length)} ویدیو</div>
-        </div>
-        <div class="session-arrow">▼</div>
-      </div>
-      <div class="video-list">
-        ${vids.map(v=>`
-          <div class="video-item" onclick="openVideo('${esc(v.title)}','جلسه ${toFarsi(sNum)} | ${v.dur}','${v.ytid}','${esc(v.desc)}')">
-            <div class="play-btn ${colorClass}">▶</div>
-            <div class="video-item-info">
-              <div class="video-item-title">${v.title}</div>
-              <div class="video-item-meta">⏱ ${v.dur}</div>
-            </div>
-            <div class="video-item-arrow">‹</div>
-          </div>`).join('')}
-      </div>
-    </div>`;
-  });
-  container.innerHTML=html;
+
+function toFarsi(n) {
+  return String(n).replace(/[0-9]/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
 }
-function toggleSession(sNum){document.getElementById('session-'+sNum).classList.toggle('open')}
-function toFarsi(n){return String(n).replace(/[0-9]/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d])}
-function esc(s){return(s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;')}
-function showPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));document.getElementById('page-'+name).classList.add('active');document.getElementById('nav-'+name).classList.add('active')}
-function openVideo(title,meta,ytid,desc){document.getElementById('modal-title').textContent=title;document.getElementById('modal-meta').textContent=meta;document.getElementById('modal-iframe').src=`https://www.youtube.com/embed/${ytid}?autoplay=1&rel=0`;document.getElementById('modal-desc').textContent=desc;document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden'}
-function closeModal(){document.getElementById('modal').classList.remove('open');document.getElementById('modal-iframe').src='';document.body.style.overflow=''}
-function closeModalOutside(e){if(e.target===document.getElementById('modal'))closeModal()}
-function reloadLessons(){showPage('lessons');loadLessons()}
-window.addEventListener('load',loadLessons);
+
+load();
 </script>
 </body>
 </html>
