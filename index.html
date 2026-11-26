@@ -53,8 +53,10 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f0f4ff;color:#222;dire
 
 video{width:100%;border-radius:10px;background:#111;max-height:220px}
 .video-wrap{position:relative}
-.video-loading{position:absolute;inset:0;background:#1a1a2e;border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:0.85rem;pointer-events:none;opacity:1;transition:opacity 0.3s}
+.video-loading{position:absolute;inset:0;background:#1a1a2e;border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:0.85rem;pointer-events:none;opacity:1;transition:opacity 0.3s;cursor:pointer}
 .video-loading.hide{opacity:0;pointer-events:none}
+.play-btn{font-size:2.5rem;margin-bottom:6px;display:block}
+.play-hint{font-size:0.8rem;opacity:0.8}
 
 /* EMPTY / LOADING */
 .empty{text-align:center;padding:60px 20px;color:#bbb}
@@ -72,7 +74,7 @@ video{width:100%;border-radius:10px;background:#111;max-height:220px}
 <div class="header">
   <div class="header-icon">📚</div>
   <h1>مدرسه حافظ</h1>
-  <p>درسهای فارسی — صنف اول</p>
+  <p>درسهای فارسی – صنف اول</p>
   <div class="stats">
     <div class="stat"><div class="stat-num" id="totalSessions">۰</div><div class="stat-lbl">جلسه</div></div>
     <div class="stat"><div class="stat-num" id="totalLessons">۰</div><div class="stat-lbl">درس</div></div>
@@ -91,18 +93,25 @@ video{width:100%;border-radius:10px;background:#111;max-height:220px}
 <div class="footer">مدرسه حافظ © ۱۴۰۳</div>
 
 <script>
-const URL = "https://raw.githubusercontent.com/hafizschool340-alt/hafiz-school/main/lessons.json";
+const LESSONS_URL = "https://raw.githubusercontent.com/hafizschool340-alt/hafiz-school/main/lessons.json";
 
 const toF = n => String(n).replace(/[0-9]/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
+
+// ✅ FIX: src را فقط موقع کلیک set میکنیم — نه موقع render
+function activateVideo(overlay, videoEl, videoUrl) {
+  overlay.classList.add('hide');
+  videoEl.src = videoUrl;
+  videoEl.play();
+}
 
 async function load() {
   const app = document.getElementById("app");
   try {
-    const r = await fetch(URL + "?t=" + Date.now());
+    const r = await fetch(LESSONS_URL + "?t=" + Date.now());
     const lessons = await r.json();
 
     if (!lessons.length) {
-      app.innerHTML = '<div class="empty"><div class="empty-icon">📭</div><p>هنوز درسی اضافه نشده</p><small style="color:#ddd">به زودی اولین درس منتشر میشود!</small></div>';
+      app.innerHTML = '<div class="empty"><div class="empty-icon">📝</div><p>هنوز درسی اضافه نشده</p><small style="color:#ddd">به زودی اولین درس منتشر میشود!</small></div>';
       return;
     }
 
@@ -139,17 +148,37 @@ async function load() {
       items.forEach((lesson, li) => {
         const lc = document.createElement("div");
         lc.className = "lesson-card";
-        lc.innerHTML = `
+
+        // ✅ FIX: video بدون src ساخته میشود
+        const videoWrap = document.createElement("div");
+        videoWrap.className = "video-wrap";
+
+        const videoEl = document.createElement("video");
+        videoEl.controls = true;
+        // ❌ حذف شد: videoEl.src = lesson.videoUrl  ← این باعث autoplay بود
+        videoEl.addEventListener('canplay', () => {
+          overlay.classList.add('hide');
+        });
+
+        const overlay = document.createElement("div");
+        overlay.className = "video-loading";
+        overlay.innerHTML = `<span class="play-btn">▶️</span><span class="play-hint">برای پخش کلیک کنید</span>`;
+        overlay.addEventListener('click', () => {
+          activateVideo(overlay, videoEl, lesson.videoUrl);
+        });
+
+        videoWrap.appendChild(videoEl);
+        videoWrap.appendChild(overlay);
+
+        const header = document.createElement("div");
+        header.innerHTML = `
           <div class="lesson-num">${toF(li+1)}</div>
           <div class="lesson-title">${lesson.title}</div>
           <div class="lesson-meta">${lesson.date||""}${lesson.duration ? "  ⏱ "+toF(lesson.duration)+" دقیقه" : ""}</div>
-          ${lesson.description ? `<div class="lesson-desc">${lesson.description}</div>` : ""}
-          <div class="video-wrap">
-            <video controls preload="none" src="${lesson.videoUrl}"
-              oncanplay="this.previousElementSibling.classList.add('hide')">
-            </video>
-            <div class="video-loading">⏳ در حال آمادهسازی...</div>
-          </div>`;
+          ${lesson.description ? `<div class="lesson-desc">${lesson.description}</div>` : ""}`;
+
+        lc.appendChild(header);
+        lc.appendChild(videoWrap);
         body.appendChild(lc);
       });
 
