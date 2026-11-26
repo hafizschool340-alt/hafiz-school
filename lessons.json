@@ -43,5 +43,14 @@
     "videoUrl": "https://archive.org/download/hafiz-s1-1795691176111/درس ششم.mp4",
     "identifier": "hafiz-s1-1795691176111",
     "date": "۱۴۰۵/۹/۵"
+  },
+  {
+    "session": 2,
+    "title": "درس اول",
+    "description": "",
+    "duration": "14 دقیقه",
+    "videoUrl": "https://archive.org/download/hafiz-s2-1795691296598/جلسه اول.mp4",
+    "identifier": "hafiz-s2-1795691296598",
+    "date": "۱۴۰۵/۹/۵"
   }
 ]
