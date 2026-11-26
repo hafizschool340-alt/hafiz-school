@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -371,7 +371,7 @@ function buildLessonCard(lesson, li) {
       '<div class="lesson-num-bubble">' + toF(li+1) + '</div>' +
       '<div class="lesson-info">' +
         '<div class="lesson-title">' + lesson.title + '</div>' +
-        '<div class="lesson-meta">' + (lesson.date||"") + (lesson.duration ? "  ⏱ "+toF(lesson.duration)+" دقیقه" : "") + '</div>' +
+        '<div class="lesson-meta">' + (lesson.date && /^[\u0600-\u06ff\d\/\s]+$/.test(lesson.date) ? lesson.date : "") + (lesson.duration && /^[\d\u06f0-\u06f9\s]+$/.test(String(lesson.duration)) ? "  ⏱ "+toF(lesson.duration)+" دقیقه" : "") + '</div>' +
       '</div>' +
     '</div>' +
     (lesson.description ? '<div class="lesson-desc">' + lesson.description + '</div>' : '');
@@ -418,3 +418,4 @@ loadData();
 </script>
 </body>
 </html>
+
