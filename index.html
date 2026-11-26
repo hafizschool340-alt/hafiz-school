@@ -199,7 +199,7 @@ async function load() {
     document.getElementById("totalSessions").textContent = toF(Object.keys(sessions).length);
     document.getElementById("totalLessons").textContent = toF(lessons.length);
 
-    const nums = Object.keys(sessions).map(Number).sort((a,b) => b-a);
+    const nums = Object.keys(sessions).map(Number).sort((a,b) => a-b);
     app.innerHTML = "";
 
     nums.forEach((sNum, idx) => {
