@@ -88,5 +88,14 @@
     "videoUrl": "https://archive.org/download/hafiz-s2-1795695009886/درس ششم.mp4",
     "identifier": "hafiz-s2-1795695009886",
     "date": "۱۴۰۵/۹/۵"
+  },
+  {
+    "session": 2,
+    "title": "درس هفتم",
+    "description": "",
+    "duration": "1 دقیقه",
+    "videoUrl": "https://archive.org/download/hafiz-s2-1795695127419/درس هفتم.mp4",
+    "identifier": "hafiz-s2-1795695127419",
+    "date": "۱۴۰۵/۹/۵"
   }
 ]
